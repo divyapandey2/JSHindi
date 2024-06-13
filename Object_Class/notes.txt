@@ -1,0 +1,91 @@
+JavaScript doesn't have in-built class:
+                                                     
+In JavaScript, there is no built-in "class" keyword like in traditional 
+class-based languages such as Java or C++. However, JavaScript does have
+ a concept called prototypes,which allows you to create objects and implement inheritance.
+
+
+
+
+
+Constructor:
+
+ Constructors in JavaScript are used for object creation because they provide a convenient way to 
+ initialize objects with predefined properties and methods. Here's why constructors are commonly 
+ used:
+
+1. **Initialization**: Constructors allow you to initialize object properties with specific values when creating new instances of an object. This helps ensure that each object starts with the correct initial state.
+
+2. **Code Reusability**: Constructors encapsulate the initialization logic within a single function. This means you can create multiple instances of objects with the same structure and initialization logic without duplicating code.
+
+3. **Encapsulation**: Constructors can also contain private variables and methods that are inaccessible from outside the constructor function. This allows you to hide implementation details and expose only the necessary parts of the object through public methods.
+
+4. **Inheritance**: Constructors can be used in JavaScript's prototype-based inheritance model to create subclasses that inherit properties and methods from a parent constructor. This enables code reuse and promotes a more modular and maintainable codebase.
+
+Overall, constructors provide a clean and organized way to create objects in JavaScript, making code more readable, reusable, and maintainable.
+
+
+In JavaScript, objects are one of the fundamental data types used to store collections of key-value pairs. They are versatile and commonly used in JavaScript programming. Here's a basic overview:
+
+1. **Creation**: You can create objects in JavaScript using either object literal notation `{}`, the `new Object()` constructor, or by creating instances of custom object constructors.
+
+    ```javascript
+    // Object literal notation
+    let person = {
+        name: "John",
+        age: 30,
+        city: "New York"
+    };
+
+    // Using new Object() constructor
+    let car = new Object();
+    car.make = "Toyota";
+    car.model = "Camry";
+    ```
+
+2. **Properties**: Objects consist of properties, where each property has a key and a value. Keys are strings (or Symbols), and values can be any data type (including other objects or functions).
+
+    ```javascript
+    console.log(person.name); // "John"
+    console.log(car.make);    // "Toyota"
+    ```
+
+3. **Methods**: Functions defined as object properties are called methods.
+
+    ```javascript
+    let person = {
+        name: "John",
+        age: 30,
+        greet: function() {
+            console.log("Hello, my name is " + this.name);
+        }
+    };
+
+    person.greet(); // "Hello, my name is John"
+    ```
+
+4. **Accessing Properties**: You can access object properties using dot notation or bracket notation.
+
+    ```javascript
+    console.log(person.age);         // Dot notation
+    console.log(person['age']);      // Bracket notation
+    let propertyName = 'name';
+    console.log(person[propertyName]); // Using a variable as the key
+    ```
+
+5. **Adding and Deleting Properties**: You can dynamically add or delete properties from an object.
+
+    ```javascript
+    person.job = "Developer";  // Adding a new property
+    delete person.city;        // Deleting a property
+    ```
+
+6. **Iterating Over Properties**: You can iterate over an object's properties using loops like `for...in`.
+
+    ```javascript
+    for (let key in person) {
+        console.log(key + ": " + person[key]);
+    }
+    ```
+
+Objects in JavaScript are very flexible and can be used to represent a wide range of data structures, from simple key-value pairs to complex nested objects.

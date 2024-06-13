@@ -1,0 +1,14 @@
+//creating object using literals// name,age ,isAdmin are properties
+let person = {
+    name: 'John',
+    age: 30,
+    isAdmin: false,
+  
+    greet: function () {
+      return (
+        'Hello, my name is ' + this.name + " and I'm " + this.age + ' years old.'
+      );
+    },
+  };
+  console.log(person.greet());
+  
