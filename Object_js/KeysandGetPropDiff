@@ -1,0 +1,57 @@
+`Object.keys()` and `Object.getOwnPropertyNames()` are similar in that they both provide ways to get property names from an object, but they differ in subtle ways:
+
+1. **Object.keys()**:
+   - Returns an array of a given object's own enumerable property names.
+   - Ignores properties found in the object's prototype chain.
+   - Only lists properties that are enumerable (`for...in` loop behavior).
+
+   ```javascript
+   const obj = {
+       a: 1,
+       b: 2
+   };
+
+   console.log(Object.keys(obj));  // Output: ["a", "b"]
+   ```
+
+2. **Object.getOwnPropertyNames()**:
+   - Returns an array of all properties (enumerable or not) found directly upon a given object.
+   - Includes both enumerable and non-enumerable properties.
+   - Lists properties from the object itself, including those inherited from its prototype chain.
+
+   ```javascript
+   const obj = {
+       a: 1,
+       b: 2
+   };
+
+   console.log(Object.getOwnPropertyNames(obj));  // Output: ["a", "b"]
+   ```
+
+### Key Differences:
+- **Enumerable Properties**: `Object.keys()` only returns enumerable properties, while `Object.getOwnPropertyNames()` returns all properties, enumerable or not.
+  
+- **Prototype Chain**: `Object.keys()` ignores properties in the prototype chain, focusing only on the object's own properties. `Object.getOwnPropertyNames()` includes properties from the prototype chain if they are directly on the object (not inherited).
+
+### Example with Inherited Properties:
+```javascript
+function Parent() {
+    this.parentProp = 'parent';
+}
+
+Parent.prototype.inheritedProp = 'inherited';
+
+const child = new Parent();
+child.childProp = 'child';
+
+console.log(Object.keys(child));  // Output: ["child"]
+console.log(Object.getOwnPropertyNames(child));  // Output: ["parent", "child"]
+```
+
+In this example:
+- `Object.keys(child)` only returns `["child"]`, ignoring `parentProp` and `inheritedProp` because they are not enumerable (`parentProp` is own property, but not enumerable by default, and `inheritedProp` is inherited).
+  
+- `Object.getOwnPropertyNames(child)` returns `["parent", "child"]`, including both own properties (`parentProp` and `childProp`) and inherited property (`inheritedProp`).
+
+### Summary:
+While `Object.keys()` and `Object.getOwnPropertyNames()` may return similar results in some cases, they serve different purposes depending on whether you need all properties (including non-enumerable and inherited ones) or just enumerable own properties.

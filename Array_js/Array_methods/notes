@@ -1,0 +1,5 @@
+Array Methods-
+JavaScript arrays come with several built-in methods 
+to manipulate their contents, such as push, pop, shift, 
+unshift, slice, splice, concat, join, indexOf, includes,
+ forEach, map, filter, reduce,
